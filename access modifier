@@ -1,0 +1,6 @@
+| **Access Modifier** | **Same Class** | **Same Package, Subclass** | **Same Package, Non-Subclass** | **Different Package, Subclass** | **Different Package, Non-Subclass** |
+|----------------------|----------------|----------------------------|---------------------------------|-----------------------------------|-------------------------------------|
+| **`public`**        | ✅ Yes         | ✅ Yes                     | ✅ Yes                          | ✅ Yes                            | ✅ Yes                              |
+| **`protected`**     | ✅ Yes         | ✅ Yes                     | ✅ Yes                          | ✅ Yes                            | ❌ No                              |
+| **(default)**        | ✅ Yes         | ✅ Yes                     | ✅ Yes                          | ❌ No                            | ❌ No                              |
+| **`private`**       | ✅ Yes         | ❌ No                     | ❌ No                          | ❌ No                            | ❌ No                              |
