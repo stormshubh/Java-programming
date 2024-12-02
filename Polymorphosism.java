@@ -1,3 +1,166 @@
+
+Java Polymorphism
+
+Polymorphism is one of the four fundamental principles of Object-Oriented Programming (OOP) in Java, alongside Encapsulation, Inheritance, and Abstraction. The term Polymorphism means "many forms," and in Java, it allows a single entity (such as a method or an object) to take on multiple forms.
+
+
+---
+
+Types of Polymorphism in Java
+
+1. Compile-Time Polymorphism (Method Overloading)
+
+Occurs when two or more methods in the same class share the same name but differ in:
+
+Number of parameters.
+
+Data type of parameters.
+
+Order of parameters.
+
+
+Resolved at compile-time by the Java compiler.
+
+
+Example:
+
+class Calculator {
+    // Method to add two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method to add three integers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Method to add two double values
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+
+        System.out.println("Addition of two integers: " + calc.add(5, 10));
+        System.out.println("Addition of three integers: " + calc.add(5, 10, 15));
+        System.out.println("Addition of two doubles: " + calc.add(5.5, 10.5));
+    }
+}
+
+Output:
+
+Addition of two integers: 15
+Addition of three integers: 30
+Addition of two doubles: 16.0
+
+
+
+
+---
+
+2. Runtime Polymorphism (Method Overriding)
+
+Occurs when a subclass provides its specific implementation for a method that is already defined in its parent class.
+
+Resolved at runtime using dynamic method dispatch.
+
+Enables Java to decide at runtime which method implementation to invoke based on the actual object.
+
+
+Example:
+
+class Animal {
+    // Method to be overridden
+    public void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myAnimal;
+
+        myAnimal = new Dog();
+        myAnimal.sound(); // Output: Dog barks
+
+        myAnimal = new Cat();
+        myAnimal.sound(); // Output: Cat meows
+    }
+}
+
+
+
+
+---
+
+Key Differences Between Compile-Time and Runtime Polymorphism
+
+
+---
+
+Polymorphism in Action
+
+Using Polymorphism with References
+
+Polymorphism is often used when a parent class reference is used to refer to a child class object. This allows for dynamic method dispatch, where the method called depends on the object's type.
+
+Example:
+
+class Shape {
+    public void draw() {
+        System.out.println("Drawing a shape");
+    }
+}
+
+class Circle extends Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+class Rectangle extends Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Shape shape;
+
+        shape = new Circle();
+        shape.draw(); // Output: Drawing a circle
+
+        shape = new Rectangle();
+        shape.draw(); // Output: Drawing a rectangle
+    }
+}
+
+
+---
+
+
+-----+-++-----+----+++------------
 Let's break this down to understand why overloading is compile-time and overriding is runtime.
 
 
